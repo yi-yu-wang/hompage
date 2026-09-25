@@ -5,129 +5,178 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wang Yi-Yu (王翊宇)</title>
   <style>
-    body { font-family: system-ui, -apple-system, sans-serif; line-height: 1.6; max-width: 750px; margin: 40px auto; padding: 0 20px; color: #222; }
-    h1 { margin-bottom: 4px; }
-    h2 { border-bottom: 1px solid #ccc; padding-bottom: 4px; margin-top: 35px; color: #111; }
-    h3 { margin: 16px 0 8px; color: #444; }
+    /* 極簡 CSS 重設與基礎設定 */
+    body { font-family: system-ui, -apple-system, sans-serif; line-height: 1.5; margin: 0; padding: 0; color: #222; background-color: #fff; }
+    h1 { margin: 0 0 8px 0; font-size: 2rem; }
+    h2 { border-bottom: 1px solid #eee; padding-bottom: 4px; margin-top: 30px; color: #111; font-size: 1.5rem; }
+    h3 { margin: 16px 0 8px; color: #444; font-size: 1.1rem; }
     a { color: #0066cc; text-decoration: none; }
     a:hover { text-decoration: underline; }
-    ul { padding-left: 20px; }
+    ul { padding-left: 20px; margin: 0; }
     li { margin-bottom: 6px; }
-    .header { display: flex; align-items: center; gap: 24px; margin-bottom: 20px; }
-    .photo { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; }
-    .links a { margin-right: 16px; font-weight: bold; }
+    p { margin: 0 0 1em 0; }
+
+    /* --- 核心排版 CSS (Grid) --- */
+    
+    /* 建立全螢幕的雙欄佈局 */
+    .wrapper {
+      display: grid;
+      grid-template-columns: 280px 1fr; /* 左欄固定 280px，右欄自動填滿 */
+      min-height: 100vh;
+    }
+
+    /* 左側固定邊欄樣式 */
+    .sidebar {
+      background-color: #f9f9f9; /* 淺灰色背景做區隔 */
+      padding: 40px 30px;
+      border-right: 1px solid #eee;
+      /* 若希望左邊固定不跟著滾動，可解開下一行註釋 */
+      /* position: sticky; top: 0; height: 100vh; overflow-y: auto; */
+    }
+
+    /* 右側主內容區樣式 */
+    .main-content {
+      padding: 40px 50px;
+      max-width: 800px; /* 限制內文寬度，方便閱讀 */
+    }
+
+    /* 左側個人資料細節 */
+    .profile-photo { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 20px; display: block; }
+    .contact-info { font-size: 0.9rem; color: #444; margin-top: 30px; word-wrap: break-word; }
+    .contact-info strong { color: #111; display: block; margin-top: 15px; }
+    
+    /* 外部連結按鈕化 (選擇性) */
+    .links-group { margin-top: 30px; display: flex; flex-direction: column; gap: 8px; }
+    .links-group a { font-weight: bold; font-size: 0.9rem; }
+
+    /* 手機版 RWD 適配 */
+    @media (max-width: 768px) {
+      .wrapper { grid-template-columns: 1fr; } /* 變成單欄 */
+      .sidebar { border-right: none; border-bottom: 1px solid #eee; padding: 30px; text-align: center; }
+      .profile-photo { margin: 0 auto 20px auto; }
+      .main-content { padding: 30px; }
+    }
   </style>
 </head>
-  <meta name="google-site-verification" content="1IBTfvYPOIp2vQHwokNpXMXMJQUciX4kImm24Qmcs3M" />
 <body>
 
-  <!-- 基本資料與照片 -->
-  <div class="header">
-    <img src="profile.jpg" alt="Photo" class="photo">
-    <div>
-      <h1>Wang Yi-Yu (王翊宇)</h1>
-      <p style="margin:0; color:#555;">Assistant Professor<br>Department of Information and Library Science, Tamkang University</p>
-    </div>
-  </div>
+  <div class="wrapper">
+    
+    <!-- =================左側邊欄================= -->
+    <aside class="sidebar">
+      <!-- 照片 -->
+      <img src="profile.jpg" alt="Wang Yi-Yu Photo" class="profile-photo">
+      
+      <!-- 姓名與職稱 (移到照片下方) -->
+      <h1>王翊宇</h1>
+      <p style="color:#555; margin-bottom: 0;">Wang, Yi-Yu</p>
+      <p style="font-size:0.95rem; color:#666; margin-top: 5px;">Assistant Professor<br>Dep. of Information and Library Science, Tamkang University</p>
+      
+      <!-- 聯絡方式 (從底部移來) -->
+      <div class="contact-info">
+        <strong>Contact</strong>
+        ✉ wangyiyu[at]mail.tku.edu.tw
+        <br><br>
+        🏠︎ Dep. of Information and Library Science, No. 151, Yingzuan Rd., Tamsui Dist., New Taipei City, 251301, Taiwan
+      </div>
 
-  <!-- 簡介 -->
-  <h2>About</h2>
-  <p>I am an Assistant Professor in the Department of Information and Library Science at Tamkang University. I completed my Ph.D. in Library and Information Science from National Taiwan University. My research focuses on information service quality, information behavior, and literacy.</p>
+      <!-- 外部連結 (從底部移來) -->
+      <div class="links-group">
+        <a href="https://www.dils.tku.edu.tw/Front/teacher-lineup/full-time-teachers/Members.aspx?id=1zIHtihbLDw=&lang=zh-tw&PID=0000000051" target="_blank">→ TKU Website</a>
+        <a href="https://orcid.org/0000-0002-5053-548X" target="_blank">→ ORCiD</a>
+        <a href="http://scholar.google.com.tw/citations?hl=zh-TW&user=S9tT9_UAAAAJ" target="_blank">→ Google Scholar</a>
+        <a href="https://www.researchgate.net/profile/Yi-Yu-Wang" target="_blank">→ ResearchGate</a>
+      </div>
+    </aside>
 
-  <!-- 研究領域 -->
-  <h2>Research</h2>
-  <h3>Expertise</h3>
-  <ul>
-    <li>Library & Information Science</li>
-    <li>Archival Studies</li>
-    <li>Information Organization</li>
-    <li>Information Behavior</li>
-    <li>Scholarly Communication</li>
-    <li>Informetrics</li>
-  </ul>
-  <h3>Present Interests</h3>
-  <ul>
-    <li>Archival Theories and Practices</li>
-    <li>Information Literacy Instructions</li>
-    <li>Mega-journals</li>
-  </ul>
+    <!-- =================右側主內容================= -->
+    <main class="main-content">
+      
+      <!-- 簡介 -->
+      <h2>About</h2>
+      <p>I am an Assistant Professor in the Department of Information and Library Science at Tamkang University. I completed my Ph.D. in Library and Information Science from National Taiwan University. My research focuses on information service quality, information behavior, and literacy.</p>
 
-  <!-- 著作列表 -->
-  <h2>Publications</h2>
-  
-  <h3>Journal Papers</h3>
-  <ul>
-    <li>王翊宇、林奇秀（2023）。史學研究者檔案使用能力之探討：檔案使用專精能力模型與五個檔案資訊素養綱領之內涵比較。<em>教育資料與圖書館學</em>，60(1)，35-76。 <a href="https://doi.org/10.6120/JoEMLS.202303_60(1).0036.RS.BM" target="_blank">[DOI]</a></li>
-    <li>Wang, Y-Y., &amp; Lin, C-S. (2022). Artefactual literacy-related abilities for historians’ effective seeking and use of primary resources. <em>Information Research</em>, 27(Special issue), isic2211. <a href="https://doi.org/10.47989/irisic2211" target="_blank">[DOI]</a></li>
-  </ul>
+      <!-- 研究領域 -->
+      <h2>Research</h2>
+      <h3>Expertise</h3>
+      <ul>
+        <li>Library & Information Science</li>
+        <li>Archival Studies</li>
+        <li>Information Organization</li>
+        <li>Information Behavior</li>
+        <li>Scholarly Communication / Informetrics</li>
+        <li>Informetrics</li>
+      </ul>
+      <h3>Present Interests</h3>
+      <ul>
+        <li>Archival Theories and Practices</li>
+        <li>Information Literacy Instructions</li>
+        <li>Mega-journals</li>
+      </ul>
 
-  <h3>Conference Presentations</h3>
-  <ul>
-    <li>王翊宇、林奇秀（2022）。從檔案使用專精能力模型探討檔案資訊素養綱領之內涵。<em>圖書資訊學術與實務研討會 2022</em>，台北市。</li>
-    <li>Lin, C.-S., &amp; Wang, Y.-Y. (2019). How do university data services present their collection and reference service information on the Web? <em>Proceedings of the ASIS&amp;T 2019 Annual Meeting</em>. <a href="https://doi.org/10.1002/pra2.145" target="_blank">[DOI]</a></li>
-    <li>Wang, Y.-Y., &amp; Lin, C.-S. (2019). A survey of data science education programs and courses in iSchools. <em>Proceedings of the ASIS&amp;T 2019 Annual Meeting</em>. <a href="https://doi.org/10.1002/pra2.184" target="_blank">[DOI]</a></li>
-    <li>Lin, C.-S., &amp; Wang, Y.-Y. (2018). Data type and data source preferences for six social sciences subjects in quantitative data reuses. <em>Proceedings of the ASIS&amp;T 2018 Annual Meeting</em>. <a href="https://doi.org/10.1002/pra2.2018.14505501151" target="_blank">[DOI]</a></li>
-    <li>Lin, C.-S., &amp; Wang, Y.-Y. (2018). The performance of reading appeal descriptors for fiction: From the perspective of Indexing consistency. <em>Proceedings of the ASIS&amp;T 2018 Annual Meeting</em>. <a href="https://doi.org/10.1002/pra2.2018.14505501152" target="_blank">[DOI]</a></li>
-  </ul>
+      <!-- 著作列表 -->
+      <h2>Publications</h2>
+      
+      <h3>Journal Papers</h3>
+      <ul>
+        <li>王翊宇、林奇秀（2023）。史學研究者檔案使用能力之探討：檔案使用專精能力模型與五個檔案資訊素養綱領之內涵比較。<em>教育資料與圖書館學</em>，60(1)，35-76。 <a href="https://doi.org/10.6120/JoEMLS.202303_60(1).0036.RS.BM" target="_blank">[DOI]</a></li>
+        <li>Wang, Y-Y., &amp; Lin, C-S. (2022). Artefactual literacy-related abilities for historians’ effective seeking and use of primary resources. <em>Information Research</em>, 27(Special issue), isic2211. <a href="https://doi.org/10.47989/irisic2211" target="_blank">[DOI]</a></li>
+      </ul>
 
-  <h3>Book Chapter</h3>
-  <ul>
-    <li>藍文欽、王翊宇（2019）。圖書資訊學教育。收錄在<em>中華民國一○七年圖書館年鑑</em>。台北市：國家圖書館。 <a href="https://nclfile.ncl.edu.tw/files/201910/69108a97-be04-477e-8502-418de67b7073.pdf" target="_blank">[PDF]</a></li>
-  </ul>
+      <h3>Conference Presentations</h3>
+      <ul>
+        <li>王翊宇、林奇秀（2022）。從檔案使用專精能力模型探討檔案資訊素養綱領之內涵。在國立臺灣師範大學圖書資訊學研究所、中華民國圖書館學會主辦，圖書資訊學術與實務研討會 2022，台北市。</li>
+        <li>Lin, C.-S., & Wang, Y.-Y. (2019). How do university data services present their collection and reference service information on the Web? In Proceedings of the ASIS&T 2019 Annual Meeting. https://doi.org/10.1002/pra2.145</li>
+        <li>Wang, Y.-Y., & Lin, C.-S. (2019). A survey of data science education programs and courses in iSchools. In Proceedings of the ASIS&T 2019 Annual Meeting. https://doi.org/10.1002/pra2.184</li>
+        <li>Lin, C.-S., & Wang, Y.-Y. (2018). Data type and data source preferences for six social sciences subjects in quantitative data reuses. In Proceedings of the ASIS&T 2018 Annual Meeting. https://doi.org/10.1002/pra2.2018.14505501151</li>
+        <li>Lin, C.-S., & Wang, Y.-Y. (2018). The performance of reading appeal descriptors for fiction: From the perspective of Indexing consistency. In Proceedings of the ASIS&T 2018 Annual Meeting. https://doi.org/10.1002/pra2.2018.14505501152</li>
+      </ul>
 
-  <h3>Dissertation</h3>
-  <ul>
-    <li>王翊宇（2025）。<em>從作者來源與被引表現分析巨型期刊的品質差異：以標竿期刊為比較基礎</em>［未出版之博士論文］。國立臺灣大學圖書資訊學研究所。</li>
-  </ul>
+      <h3>Book Chapter & Dissertation</h3>
+      <ul>
+        <li>藍文欽、王翊宇（2019）。圖書資訊學教育。收錄在<em>中華民國一○七年圖書館年鑑</em>。 <a href="https://nclfile.ncl.edu.tw/files/201910/69108a97-be04-477e-8502-418de67b7073.pdf" target="_blank">[PDF]</a></li>
+        <li>王翊宇（2025）。從作者來源與被引表現分析巨型期刊的品質差異：以標竿期刊為比較基礎［未出版之博士論文］。國立臺灣大學圖書資訊學研究所。</li>
+      </ul>
 
-  <!-- 教學課程 -->
-  <h2>Teaching</h2>
-  <h3>Current Semester (115-1)</h3>
-  <ul>
-    <li>Introduction to Librarianship &amp; Information Science</li>
-    <li>Introduction to Artificial Intelligence</li>
-    <li>Exploring Sustainability</li>
-    <li>Periodical Management</li>
-    <li>Intelligent Data Processing and Applications in the Humanities</li>
-  </ul>
-  <h3>Historical Courses</h3>
-  <ul>
-    <li>Research Methods &amp; Writing (114-2)</li>
-    <li>Statistic for Library Science (114-2)</li>
-    <li>Information Literacy (114-2)</li>
-    <li>Infographics and Applications (114-2)</li>
-    <li>Introduction to Library and Information Science (114-2)</li>
-  </ul>
+      <!-- 教學課程 -->
+      <h2>Teaching</h2>
+      <ul>
+        <li>Intro to Librarianship & Info Science</li>
+        <li>Intro to Artificial Intelligence</li> 
+        <li>Exploring Sustainability</li>
+        <li>Periodical Management</li>
+        <li>Intelligent Data Processing</li>
+      </ul>
 
-  <!-- 學歷 -->
-  <h2>Education</h2>
-  <ul>
-    <li><strong>2015.2 – 2025.1</strong> | Ph.D. in Library and Information Science, National Taiwan University</li>
-    <li><strong>2013.8 – 2014.1</strong> | Exchange Student (Archival Studies), Renmin University</li>
-    <li><strong>2010.9 – 2015.1</strong> | B.A. in Library and Information Science, National Taiwan University</li>
-  </ul>
+      <!-- 學歷 -->
+      <h2>Education</h2>
+      <ul>
+        <li><strong>2015 – 2025</strong> | Ph.D., Library and Information Science, National Taiwan University, Taiwan</li>
+        <li><strong>2010 – 2015</strong> | B.A., Library and Information Science, National Taiwan University, Taiwan</li>
+        <li><strong>2013 – 2014</strong> | Exchange Student (Archival Studies, College of Information Resource Management), Renmin University, China</li>
+      </ul>
 
-  <!-- 獲獎與活動 -->
-  <h2>Activities &amp; Awards</h2>
-  <ul>
-    <li><strong>2025</strong> | Library Association of the R.O.C (Taiwan) Outstanding Thesis Awards Honorable Mention</li>
-    <li><strong>2016</strong> | Professor LEE TE-CHU Memorial Scholarship</li>
-    <li><strong>2015</strong> | NTU LIS Alumni Association Scholarship</li>
-    <li><strong>2014</strong> | NTU Academic Achievement Award</li>
-    <li><strong>2020.2 – 2021.12</strong> | Secretary, 56th Classification &amp; Cataloging Committee, LAC</li>
-  </ul>
+      <!-- 獲獎 -->
+      <h2>Awards</h2>
+      <ul>
+        <li><strong>2025</strong> | Library Association of the R.O.C (Taiwan) Outstanding Thesis and Dissertation Awards Honorable Mention for PhD Dissertation</li>
+        <li><strong>2016</strong> | Library Association of the R.O.C (Taiwan) Professor LEE TE-CHU Memorial Scholarship</li>
+        <li><strong>2015</strong> | NTU LIS Alumni Association Scholarship</li>
+        <li><strong>2014</strong> | NTU Academic Achievement Award (102-2 Semester)</li>
+      </ul>
+       <!-- 其他經歷 -->
+    
+      <h2>Experience</h2>
+        <ul>
+          <h3>Examination</h3>
+          <ul>
+          <li><strong>2025</strong> | Civil Service Senior Examination, Archive management</li>
+          <li><strong>2025</strong> | Civil Service Junior Examination, Library and information management</li>
+          <ul>
+       </ul>
 
-  <!-- 聯絡方式與外部連結 -->
-  <h2>Contact</h2>
-  <p>✉ wangyiyu[at]mail.tku.edu.tw<br>
-  🏠︎ Dep. of Information and Library Science, No. 151, Yingzuan Rd., Tamsui Dist., New Taipei City, 251301, Taiwan</p>
-
-  <p class="links">
-    <a href="https://www.dils.tku.edu.tw/Front/teacher-lineup/full-time-teachers/Members.aspx?id=1zIHtihbLDw=&lang=zh-tw&PID=0000000051" target="_blank">TKU Website</a>
-    <a href="https://orcid.org/0000-0002-5053-548X" target="_blank">ORCiD</a>
-    <a href="http://scholar.google.com.tw/citations?hl=zh-TW&user=S9tT9_UAAAAJ" target="_blank">Google Scholar</a>
-    <a href="https://www.researchgate.net/profile/Yi-Yu-Wang" target="_blank">ResearchGate</a>
-  </p>
+    </main>
+  </div> <!-- end wrapper -->
 
 </body>
 </html>
